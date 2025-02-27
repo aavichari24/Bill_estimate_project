@@ -80,6 +80,20 @@
 
             <div class="table-container">
 
+                <div class="subject-container">
+
+                    <label for="subject" class="subject-label">Subject:</label>
+
+                    <input type="text" id="subject" class="subject-input" value="">
+
+                </div>
+
+
+
+                <hr class="subject-line">
+
+
+
                 <table>
 
                     <thead>
@@ -102,9 +116,9 @@
 
                             <td><textarea class="particular" placeholder="Enter item"></textarea></td>
 
-                            <td><input type="number" class="amount" placeholder="Rs." oninput="calculateTotal()"></td>
+                            <td><input type="number" class="amount" placeholder="" oninput="calculateTotal()"></td>
 
-                            <td><input type="number" class="paise" placeholder="P." oninput="calculateTotal()"></td>
+                            <td><input type="number" class="paise" placeholder="" oninput="calculateTotal()"></td>
 
                         </tr>
 
@@ -114,9 +128,9 @@
 
                         <tr>
 
-                            <td><strong>Payment Mode: <span id="payment_text">Cash</span></strong></td>
+                            <td><strong>Total: <span id="payment_text"></span></strong></td>
 
-                            <td><strong>Total: Rs. <span id="total_amount">0</span></strong></td>
+                            <td><strong>Rs. <span id="total_amount">0</span></strong></td>
 
                             <td><strong><span id="total_paise">00</span></strong></td>
 
@@ -128,15 +142,17 @@
 
                 
 
+                <div class="add-row-container">
+
+                    <button class="add-row-btn" onclick="addRow()">Add Row</button>
+
+                </div>
+
+                
+
+                
+
         
-
-                <button class="add-row-btn" onclick="addRow()">Add Row</button>
-
-                
-
-                
-
-                
 
                 <div class="total">
 
@@ -151,16 +167,6 @@
 
 
             
-
-            <select id="payment_method" onchange="updatePaymentMethod()">
-
-                <option value="Cash">Cash</option>
-
-                <option value="UPI">UPI</option>
-
-                <option value="Bank Transfer">Bank Transfer</option>
-
-            </select>
 
         </div>
 
@@ -354,4 +360,4 @@ function updateDocumentType() {
 
 </body>
 
-</html>
+</html>.
