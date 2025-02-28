@@ -8,6 +8,8 @@ body {
 
 
 
+/* Navbar */
+
 .navbar {
 
     display: flex;
@@ -40,6 +42,8 @@ body {
 
 
 
+/* Bill Container */
+
 .bill-container {
 
     width: 80%;
@@ -56,6 +60,8 @@ body {
 
 
 
+/* Headings */
+
 h1, h2, h3, p {
 
     text-align: center;
@@ -63,6 +69,24 @@ h1, h2, h3, p {
 }
 
 
+
+h1 {
+
+    font-size: 2.2222em;
+
+}
+
+
+
+h3 {
+
+    margin: auto;
+
+}
+
+
+
+/* Bill Information */
 
 .bill-info {
 
@@ -93,6 +117,8 @@ h1, h2, h3, p {
 }
 
 
+
+/* Table */
 
 table {
 
@@ -128,6 +154,8 @@ th:nth-child(1), td:nth-child(1) {
 
 }
 
+
+
 th:nth-child(2), td:nth-child(2) {
 
     width: 25%;
@@ -135,6 +163,8 @@ th:nth-child(2), td:nth-child(2) {
     text-align: center;
 
 }
+
+
 
 th:nth-child(3), td:nth-child(3) {
 
@@ -146,9 +176,7 @@ th:nth-child(3), td:nth-child(3) {
 
 
 
-
-
-
+/* Input Fields */
 
 input {
 
@@ -163,6 +191,8 @@ input {
 }
 
 
+
+/* Total Section */
 
 .total {
 
@@ -184,27 +214,27 @@ input {
 
 
 
-.table-container, .total{
+.total p {
 
-    width: 100%;
+    width: 50%;
 
-    max-width: 100%;
+    text-align: left;
 
 }
 
 
 
-#word1 {
+.total #word1 {
 
     font-size: 25px;
 
+    text-align: right;
+
 }
 
 
 
-
-
-
+/* Contact Info */
 
 .contact-info {
 
@@ -216,11 +246,13 @@ input {
 
 
 
+/* Particular Column */
+
 .particular {
 
     width: 100%;
 
-    min-height: 30px; /* Default height */
+    min-height: 30px;
 
     border: none;
 
@@ -228,25 +260,23 @@ input {
 
     text-align: left;
 
-    resize: none; /* Prevent manual resize */
+    resize: none;
 
-    overflow-y: hidden; /* Hide scrollbar until needed */
+    overflow-y: hidden;
 
 }
 
 
-
-/* Ensure the table row height expands */
 
 td {
 
-    vertical-align: top; /* Align content to the top */
+    vertical-align: top;
 
 }
 
 
 
-.particular:focus{
+.particular:focus {
 
     height: auto;
 
@@ -254,19 +284,7 @@ td {
 
 
 
-h1{
-
-    font-size: 2.2222em;
-
-}
-
-h3{
-
-    margin: auto;
-
-}
-
-
+/* Footer */
 
 tfoot {
 
@@ -274,7 +292,7 @@ tfoot {
 
     font-weight: bold;
 
-    background-color: #f2f2f2; /* Light gray background */
+    background-color: #f2f2f2;
 
 }
 
@@ -292,7 +310,9 @@ tfoot td {
 
 
 
-.amount, .paise{
+/* Amount & Paise */
+
+.amount, .paise {
 
     text-align: center;
 
@@ -300,9 +320,15 @@ tfoot td {
 
     margin: auto;
 
+    height: 39px;
+
 }
 
 
+
+
+
+/* Document Type */
 
 #docType {
 
@@ -317,6 +343,8 @@ tfoot td {
 }
 
 
+
+/* Signature Section */
 
 .signature-section {
 
@@ -340,7 +368,9 @@ tfoot td {
 
 
 
-.add-row-container{
+/* Add Row */
+
+.add-row-container {
 
     display: flex;
 
@@ -354,9 +384,9 @@ tfoot td {
 
 .add-row-btn {
 
-    display: block;  /* Ensures it is properly placed */
+    display: block;
 
-    margin: 10px;  /* Centers the button below the table */
+    margin: 10px;
 
     padding: 10px 15px;
 
@@ -366,9 +396,9 @@ tfoot td {
 
     color: black;
 
-    background-color: white; /* Blue background */
+    background-color: white;
 
-    border:0.8 px solid black;
+    border: 0.8px solid black;
 
     border-radius: 3px;
 
@@ -382,15 +412,17 @@ tfoot td {
 
 .add-row-btn:hover {
 
-    background-color: gray; /* Darker blue on hover */
+    background-color: gray;
 
 }
 
 
 
+/* Subject Container */
+
 .subject-container {
 
-    margin-bottom: -5px; /* Space between the subject and the table */
+    margin-bottom: -5px;
 
 }
 
@@ -420,7 +452,7 @@ tfoot td {
 
     width: 75%;
 
-    max-width: 500px; /* Limit width */
+    max-width: 500px;
 
     border: none;
 
@@ -436,7 +468,7 @@ tfoot td {
 
 .subject-input:focus {
 
-    border-color: #0056b3; /* Darker border color when focused */
+    border-color: #0056b3;
 
 }
 
@@ -444,11 +476,9 @@ tfoot td {
 
 .subject-line {
 
-    
-
     border: 0;
 
-    border-top:2px solid #010102 ;
+    border-top: 2px solid #010102;
 
     width: 84%;
 
@@ -456,11 +486,45 @@ tfoot td {
 
 
 
+/* Button Container - Aligns Buttons */
+
+.button-group {
+
+    display: flex;
+
+    justify-content: center;  /* Center align the buttons */
+
+    gap: 8px;  /* Space between buttons */
+
+    margin-top: 10px;
+
+    flex-wrap: wrap;  /* Ensures wrapping in smaller screens */
+
+}
 
 
 
+/* Button Styling */
 
-@media print{
+.small-btn {
+
+    padding: 8px 12px;
+
+    font-size: 14px;
+
+    flex: 1;  /* Makes buttons adjust evenly */
+
+    max-width: 120px;  /* Ensures they don’t stretch too much */
+
+    text-align: center;
+
+}
+
+
+
+/* Print Styles */
+
+@media print {
 
     .navbar, .add-row-btn {
 
@@ -492,8 +556,6 @@ tfoot td {
 
         border: none;
 
-        page-break-after: avoid;
-
         margin: 0;
 
         padding: 10px;
@@ -510,13 +572,11 @@ tfoot td {
 
         border-collapse: collapse;
 
-        page-break-inside: auto;
-
         margin-top: 10px;
 
     }
 
-    
+
 
     table, th, td {
 
@@ -524,7 +584,7 @@ tfoot td {
 
     }
 
-    
+
 
     th, td {
 
@@ -534,53 +594,13 @@ tfoot td {
 
         page-break-inside: avoid;
 
-        page-break-after: auto;
-
     }
-
-
-
-    th:nth-child(1), td:nth-child(1) {
-
-        width: 60%;
-
-    }
-
-    th:nth-child(2), td:nth-child(2) {
-
-        width: 25%;
-
-        text-align: center;
-
-    }
-
-    th:nth-child(3), td:nth-child(3) {
-
-        width: 15%;
-
-        text-align: center;
-
-    }
-
-
-
-    .print-section {
-
-        page-break-before: always;
-
-    }
-
-    
-
-
 
 
 
     .total {
 
         display: flex;
-
-        
 
         align-items: center;
 
@@ -590,8 +610,6 @@ tfoot td {
 
         width: 100%;
 
-        max-width: 100%;
-
         margin-top: 10px;
 
         padding: 5px 0;
@@ -600,7 +618,7 @@ tfoot td {
 
 
 
-    .total p{
+    .total p {
 
         width: 50%;
 
@@ -608,33 +626,9 @@ tfoot td {
 
     }
 
-    .total #word1{
-
-        left: 5.5%;
-
-        text-align: right;
-
-    }
 
 
-
-    .amount, .paise{
-
-        text-align: center;
-
-        display: block;
-
-        margin: auto;
-
-    }
-
-
-
-}
-
-@media print{
-
-    #docType, #docType-label{
+    #docType, #docType-label, .subject-line {
 
         display: none;
 
@@ -642,7 +636,7 @@ tfoot td {
 
 
 
-    .subject-line {
+    .button-group {
 
         display: none;
 
@@ -651,6 +645,8 @@ tfoot td {
 }
 
 
+
+/* Mobile Styles */
 
 @media screen and (max-width: 600px) {
 
@@ -662,13 +658,21 @@ tfoot td {
 
         border-width: 1px;
 
+        text-align: center;
+
     }
 
 
 
     table {
 
-        font-size: 14px; /* Reduce font size for better readability */
+        font-size: 14px;
+
+        display: block;
+
+        overflow-x: auto;
+
+        white-space: nowrap;
 
     }
 
@@ -684,7 +688,7 @@ tfoot td {
 
     .bill-info {
 
-        flex-direction: column; /* Stack inputs for better mobile layout */
+        flex-direction: column;
 
         align-items: center;
 
@@ -698,8 +702,6 @@ tfoot td {
 
         text-align: center;
 
-        height: 0;
-
     }
 
 
@@ -707,6 +709,8 @@ tfoot td {
     .navbar {
 
         flex-direction: column;
+
+        align-items: center;
 
         gap: 10px;
 
@@ -716,9 +720,11 @@ tfoot td {
 
     .navbar button {
 
-        width: 100%;
+        width: 90%;
 
-        padding: 10px;
+        max-width: 200px;
+
+        text-align: center;
 
     }
 
@@ -727,60 +733,6 @@ tfoot td {
     .contact-info {
 
         font-size: 12px;
-
-    }
-
-
-
-    h1, h2, h3, p {
-
-        text-align: center;
-
-        height: 22px;
-
-        font-size: inherit;
-
-        line-height: -1;
-
-    }
-
-
-
-    h3 {
-
-        margin: auto;
-
-        font-size: inherit;
-
-    }
-
-
-
-    .subject-line {
-
-        border: 0;
-
-        border-top: 2px solid #010102;
-
-        width: 74%;
-
-        margin-left: 69px;
-
-    }
-
-
-
-    .bill-container {
-
-        text-align: center;
-
-    }
-
-
-
-    .navbar #mybutton, #mybutton1 {
-
-        display: none;
 
     }
 
@@ -810,12 +762,69 @@ tfoot td {
 
 
 
-    #add{
+    .total {
 
-        font-size: 12px;
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+
+
+    .subject-line {
+
+        border: 0;
+
+        border-top: 1.5px solid #010102;
+
+        width: 75%;
+
+        margin-left: 73px;
 
     }
 
-    
+
+
+    body {
+
+        font-family: "Times New Roman", Times, serif;
+
+        text-align: center;
+
+        margin-right: 9px;
+
+        margin-left: 6px;
 
     }
+
+
+
+    .amount, .paise {
+
+        width: 96%;
+
+    }
+
+
+
+    .particular {
+
+        width: 98%;
+
+    }
+
+}
+
+
+
+@media print{
+
+    .button-container {
+
+        display: none;
+
+    }
+
+}
+
