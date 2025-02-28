@@ -648,4 +648,174 @@ tfoot td {
 
     }
 
-        }
+}
+
+
+
+@media screen and (max-width: 600px) {
+
+    .bill-container {
+
+        width: 95%;
+
+        padding: 10px;
+
+        border-width: 1px;
+
+    }
+
+
+
+    table {
+
+        font-size: 14px; /* Reduce font size for better readability */
+
+    }
+
+
+
+    th, td {
+
+        padding: 5px;
+
+    }
+
+
+
+    .bill-info {
+
+        flex-direction: column; /* Stack inputs for better mobile layout */
+
+        align-items: center;
+
+    }
+
+
+
+    .bill-info p {
+
+        width: 100%;
+
+        text-align: center;
+
+        height: 0;
+
+    }
+
+
+
+    .navbar {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+
+
+    .navbar button {
+
+        width: 100%;
+
+        padding: 10px;
+
+    }
+
+
+
+    .contact-info {
+
+        font-size: 12px;
+
+    }
+
+
+
+    h1, h2, h3, p {
+
+        text-align: center;
+
+        height: 22px;
+
+        font-size: inherit;
+
+        line-height: -1;
+
+    }
+
+
+
+    h3 {
+
+        margin: auto;
+
+        font-size: inherit;
+
+    }
+
+
+
+    .subject-line {
+
+        border: 0;
+
+        border-top: 2px solid #010102;
+
+        width: 74%;
+
+        margin-left: 69px;
+
+    }
+
+
+
+    .bill-container {
+
+        text-align: center;
+
+    }
+
+
+
+    .navbar #mybutton, #mybutton1 {
+
+        display: none;
+
+    }
+
+
+
+    h1 {
+
+        font-size: 33px;
+
+    }
+
+
+
+    h2 {
+
+        margin-top: 33px;
+
+    }
+
+
+
+    h3 {
+
+        font-size: 14px;
+
+    }
+
+
+
+    #add{
+
+        font-size: 12px;
+
+    }
+
+    
+
+    }
