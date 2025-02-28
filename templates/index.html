@@ -12,23 +12,35 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
+    <style>
+
+        .button-group {
+
+            display: flex;
+
+            justify-content: start;
+
+            gap: 10px;
+
+            margin-top: 10px;
+
+        }
+
+
+
+        .small-btn {
+
+            padding: 6px 12px;
+
+            font-size: 14px;
+
+        }
+
+    </style>
+
 </head>
 
 <body>
-
-
-
-    <!-- Navigation Bar -->
-
-    <nav class="navbar">
-
-        <button onclick="printBill()">Print Bill</button>
-
-        <button onclick="viewPreviousBills()" id="mybutton">View Previous Bills</button>
-
-        <button onclick="viewRecords()" id="mybutton1">View Records & Totals</button>
-
-    </nav>
 
 
 
@@ -42,11 +54,13 @@
 
             <p id="add">C/o. E. VALES, ALTO DABOLIM, GOA.</p>
 
-            <p class="contact-info">Mobile (WhatsApp): 8806723549 | Email: chariarun31@gmail.com | GPay: 9637243572</p>
+            <p class="contact-info">
 
-    
+                Mobile (WhatsApp): 8806723549 | Email: chariarun31@gmail.com | GPay: 9637243572
 
-    
+            </p>
+
+
 
             <h2 id="documentType">BILL / ESTIMATE</h2>
 
@@ -64,7 +78,7 @@
 
             </select>
 
-    
+
 
             <div class="bill-info">
 
@@ -140,33 +154,27 @@
 
                 </table>
 
-                
 
-                <div class="add-row-container">
 
-                    <button class="add-row-btn" onclick="addRow()">Add Row</button>
+                <!-- Buttons Section -->
 
-                </div>
+                <div class="button-container">
 
-                
+                    <div class="button-group">
 
-                
+                        <button class="small-btn" onclick="addRow()">Add Row</button>
 
-        
+                        <button class="small-btn" onclick="printBill()">Print Bill</button>
 
-                <div class="total">
+                        <button class="small-btn" onclick="location.reload()">Refresh</button>
 
-                    <!--<p id="word"><strong>Payment Mode: <span id="payment_text">Cash</span></strong></p>
-
-                    <p id="word1"><strong>Total: Rs. <span id="total_amount">0</span>. <span id="total_paise">00</span></strong></p>-->
+                    </div>
 
                 </div>
+
+
 
             </div>
-
-
-
-            
 
         </div>
 
@@ -184,13 +192,19 @@
 
             newRow.innerHTML = `
 
-                <td><input type="text" class="particular" placeholder="Enter item"></td>
+                <td><textarea class="particular" placeholder="Enter item"></textarea></td>
 
                 <td><input type="number" class="amount" placeholder="Rs." oninput="calculateTotal()"></td>
 
                 <td><input type="number" class="paise" placeholder="P." oninput="calculateTotal()"></td>
 
             `;
+
+
+
+            // Attach auto-expand function to the new textarea
+
+            newRow.querySelector(".particular").addEventListener("input", autoExpand);
 
         }
 
@@ -236,123 +250,41 @@
 
 
 
-        function viewPreviousBills() {
+        function updateDocumentType() {
 
-            alert("Feature coming soon!");
+            let selectedType = document.getElementById("docType").value;
 
-        }
-
-
-
-        function viewRecords() {
-
-            alert("Feature coming soon!");
+            document.getElementById("documentType").innerText = selectedType;
 
         }
 
 
 
-        function updatePaymentMethod() {
+        function autoExpand(event) {
 
-    let paymentMethod = document.getElementById("payment_method").value;
+            event.target.style.height = "auto"; // Reset height
 
-    document.getElementById("payment_text").innerText = paymentMethod;
+            event.target.style.height = event.target.scrollHeight + "px"; // Expand based on content
 
-}
-
-
-
-// Function to auto-expand textareas
-
-function autoExpand(event) {
-
-    event.target.style.height = "auto"; // Reset height
-
-    event.target.style.height = event.target.scrollHeight + "px"; // Expand based on content
-
-}
+        }
 
 
 
-// Attach event listener to existing Particulars fields
+        function refreshPage() {
 
-document.querySelectorAll(".particular").forEach(textarea => {
+            location.reload(); // Reloads the page
 
-    textarea.addEventListener("input", autoExpand);
-
-});
+        }
 
 
 
-// Function to add a new row dynamically
+        // Attach auto-expand function to existing textareas
 
-function addRow() {
+        document.querySelectorAll(".particular").forEach(textarea => {
 
-    let table = document.getElementById("bill-entries");
+            textarea.addEventListener("input", autoExpand);
 
-    let newRow = table.insertRow();
-
-    newRow.innerHTML = `
-
-        <td><textarea class="particular" placeholder="Enter item"></textarea></td>
-
-        <td><input type="number" class="amount" placeholder="Rs." oninput="calculateTotal()"></td>
-
-        <td><input type="number" class="paise" placeholder="P." oninput="calculateTotal()"></td>
-
-    `;
-
-
-
-    // Attach auto-expand function to the new textarea
-
-    newRow.querySelector(".particular").addEventListener("input", autoExpand);
-
-}
-
-
-
-function calculateTotal() {
-
-    let totalRs = 0, totalP = 0;
-
-    document.querySelectorAll(".amount").forEach(input => {
-
-        totalRs += Number(input.value) || 0;
-
-    });
-
-    document.querySelectorAll(".paise").forEach(input => {
-
-        totalP += Number(input.value) || 0;
-
-    });
-
-
-
-    totalRs += Math.floor(totalP / 100);
-
-    totalP = totalP % 100;
-
-
-
-    document.getElementById("total_amount").innerText = totalRs;
-
-    document.getElementById("total_paise").innerText = totalP.toString().padStart(2, '0');
-
-}
-
-
-
-function updateDocumentType() {
-
-    let selectedType = document.getElementById("docType").value;
-
-    document.getElementById("documentType").innerText = selectedType; // Update heading
-
-}
-
-
+        });
 
     </script>
 
