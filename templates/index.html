@@ -1,295 +1,181 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Bill/Estimate</title>
-
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
     <style>
-
         .button-group {
-
             display: flex;
-
             justify-content: start;
-
             gap: 10px;
-
             margin-top: 10px;
-
         }
-
-
 
         .small-btn {
-
             padding: 6px 12px;
-
             font-size: 14px;
-
         }
-
     </style>
-
 </head>
-
 <body>
 
-
-
     <div class="print-section">
-
         <div class="bill-container">
-
             <h1>ARUN CHARI</h1>
-
             <h3>AUTO BODY REPAIRERS</h3>
-
             <p id="add">C/o. E. VALES, ALTO DABOLIM, GOA.</p>
-
             <p class="contact-info">
-
                 Mobile (WhatsApp): 8806723549 | Email: chariarun31@gmail.com | GPay: 9637243572
-
             </p>
-
-
 
             <h2 id="documentType">BILL / ESTIMATE</h2>
 
-
-
             <!-- Dropdown to choose between Bill and Estimate -->
-
             <label id="docType-label"><strong>Select Type:</strong></label>
-
             <select id="docType" onchange="updateDocumentType()">
-
                 <option value="BILL">Bill</option>
-
                 <option value="ESTIMATE">Estimate</option>
-
             </select>
 
-
-
             <div class="bill-info">
-
                 <p><strong>No:</strong> <input type="text" id="bill_no" placeholder="Enter Bill No"></p>
-
                 <p><strong>Vehicle No:</strong> <input type="text" id="vehicle_no" placeholder="Enter Vehicle No"></p>
-
                 <p><strong>Date:</strong> <input type="date" id="bill_date"></p>
-
             </div>
 
-
-
             <div class="table-container">
-
                 <div class="subject-container">
-
                     <label for="subject" class="subject-label">Subject:</label>
-
                     <input type="text" id="subject" class="subject-input" value="">
-
                 </div>
-
-
 
                 <hr class="subject-line">
 
-
-
                 <table>
-
                     <thead>
-
                         <tr>
-
                             <th>Particulars</th>
-
-                            <th>Rs.</th>
-
-                            <th>P.</th>
-
+                            <th>Amount </th>
                         </tr>
-
                     </thead>
-
                     <tbody id="bill-entries">
-
                         <tr>
-
                             <td><textarea class="particular" placeholder="Enter item"></textarea></td>
-
                             <td><input type="number" class="amount" placeholder="" oninput="calculateTotal()"></td>
-
-                            <td><input type="number" class="paise" placeholder="" oninput="calculateTotal()"></td>
-
                         </tr>
-
                     </tbody>
-
                     <tfoot>
-
                         <tr>
-
-                            <td><strong>Total: <span id="payment_text"></span></strong></td>
-
-                            <td><strong>Rs. <span id="total_amount">0</span></strong></td>
-
-                            <td><strong><span id="total_paise">00</span></strong></td>
-
+                            <td id="total-1"><strong>Total:</strong></td>
+                            <td id="total-2"><strong>Rs. <span id="total_amount">0.00</span></strong></td>
                         </tr>
-
+                        <tr>
+                            <td id="words1" colspan="2"><strong>Rupees in Words:</strong> <span id="amount_in_words"></span></td>
+                        </tr>
                     </tfoot>
-
                 </table>
 
-
-
                 <!-- Buttons Section -->
-
                 <div class="button-container">
-
                     <div class="button-group">
-
                         <button class="small-btn" onclick="addRow()">Add Row</button>
-
                         <button class="small-btn" onclick="printBill()">Print Bill</button>
-
                         <button class="small-btn" onclick="location.reload()">Refresh</button>
-
                     </div>
-
                 </div>
 
-
-
             </div>
-
         </div>
-
     </div>
 
-
-
     <script>
-
         function addRow() {
-
             let table = document.getElementById("bill-entries");
-
             let newRow = table.insertRow();
-
             newRow.innerHTML = `
-
                 <td><textarea class="particular" placeholder="Enter item"></textarea></td>
-
-                <td><input type="number" class="amount" placeholder="Rs." oninput="calculateTotal()"></td>
-
-                <td><input type="number" class="paise" placeholder="P." oninput="calculateTotal()"></td>
-
+                <td><input type="number" class="amount" placeholder="" oninput="calculateTotal()"></td>
             `;
 
-
-
             // Attach auto-expand function to the new textarea
-
             newRow.querySelector(".particular").addEventListener("input", autoExpand);
-
         }
-
-
 
         function calculateTotal() {
-
-            let totalRs = 0, totalP = 0;
+            let total = 0;
 
             document.querySelectorAll(".amount").forEach(input => {
-
-                totalRs += Number(input.value) || 0;
-
+                total += parseFloat(input.value) || 0;
             });
 
-            document.querySelectorAll(".paise").forEach(input => {
-
-                totalP += Number(input.value) || 0;
-
-            });
-
-
-
-            totalRs += Math.floor(totalP / 100);
-
-            totalP = totalP % 100;
-
-
-
-            document.getElementById("total_amount").innerText = totalRs;
-
-            document.getElementById("total_paise").innerText = totalP.toString().padStart(2, '0');
-
+            document.getElementById("total_amount").innerText = total.toFixed(2);
+            document.getElementById("amount_in_words").innerText = numberToWords(total);
         }
 
+        function numberToWords(num) {
+            const a = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
+            const b = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
 
+            function convertTwoDigits(n) {
+                if (n < 20) return a[n];
+                let tens = Math.floor(n / 10), ones = n % 10;
+                return b[tens] + (ones ? " " + a[ones] : "");
+            }
+
+            function convertThreeDigits(n) {
+                let hundred = Math.floor(n / 100), remainder = n % 100;
+                let words = "";
+                if (hundred) words += a[hundred] + " Hundred";
+                if (remainder) words += (words ? " and " : "") + convertTwoDigits(remainder);
+                return words;
+            }
+
+            if (num === 0) return "Zero Rupees";
+
+            let rupees = Math.floor(num), paise = Math.round((num - rupees) * 100);
+            let result = "";
+
+            if (rupees >= 1000) {
+                result += convertThreeDigits(Math.floor(rupees / 1000)) + " Thousand ";
+                rupees %= 1000;
+            }
+
+            if (rupees > 0) {
+                result += convertThreeDigits(rupees);
+            }
+
+            if (paise > 0) {
+                result += (result ? " and " : "") + convertTwoDigits(paise) + " Paise";
+            }
+
+            return result + " Only";
+        }
 
         function printBill() {
-
             window.print();
-
         }
-
-
 
         function updateDocumentType() {
-
             let selectedType = document.getElementById("docType").value;
-
             document.getElementById("documentType").innerText = selectedType;
-
         }
-
-
 
         function autoExpand(event) {
-
             event.target.style.height = "auto"; // Reset height
-
             event.target.style.height = event.target.scrollHeight + "px"; // Expand based on content
-
         }
-
-
 
         function refreshPage() {
-
             location.reload(); // Reloads the page
-
         }
 
-
-
         // Attach auto-expand function to existing textareas
-
         document.querySelectorAll(".particular").forEach(textarea => {
-
             textarea.addEventListener("input", autoExpand);
-
         });
-
     </script>
 
-
-
 </body>
-
 </html>
