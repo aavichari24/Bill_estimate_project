@@ -216,8 +216,12 @@
             document.getElementById("signature-name").style.display = selectedType === "name" ? "block" : "none";
             document.getElementById("signature-image").style.display = selectedType === "image" ? "block" : "none";
         }
+
+        document.querySelectorAll(' .bill-info input').forEach(input => {
+            input.addEventListener('input', value.length + 5) + 'ch;'
+        });
     </script>
 
 
 </body>
-        </html>
+</html>
