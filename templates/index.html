@@ -69,7 +69,10 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td id="total-1"><strong>Total:</strong></td>
+                            
+                            <td id="total-1">
+                                <button class="butt" onclick="addRow()">Add Row</button>
+                                <strong>Total:</strong></td>
                             <td id="total-2"><strong>Rs. <span id="total_amount">0.00</span></strong></td>
                         </tr>
                         <tr>
@@ -105,7 +108,7 @@
                         </select>
                     </div>
                     <div class="button-group">
-                        <button class="small-btn" onclick="addRow()">Add Row</button>
+                        
                         <button id="printButton" class="small-btn" onclick="printBill()">Print</button>
                         <button class="small-btn" onclick="location.reload()">Refresh</button>
                     </div>
@@ -217,4 +220,4 @@
 
 
 </body>
-</html>
+        </html>
