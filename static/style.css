@@ -155,7 +155,7 @@ tfoot {
 
 tfoot td {
     padding: 10px;
-    border-top: 2px solid black;
+    border-top: 1px solid black;
     text-align: left;
 }
 
@@ -259,15 +259,27 @@ tfoot td {
 /* Button Styling */
 
 .small-btn {
-    padding: 5px 13px;
-    font-size: 12px;
-    width: 92px;
+    padding-left:6px;
+    padding-right:6px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 11px;
+    width: 117px;
     margin-bottom: 9px;
 }
 
 #total-1{
-    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px;
 }
+
+#total-2 {
+    padding: 14px;
+}
+
+
 
 .signature-section {
     display: block; /* Hide in normal view */
@@ -308,6 +320,11 @@ tfoot td {
 .signature-dropdown {
     display: flex;
     align-items: center;
+}
+
+.butt {
+    padding: 6px 12px;
+    font-size: 14px;
 }
 
 /*.signature-line {
@@ -525,8 +542,11 @@ tfoot td {
     }
 
     #total-1 {
-        text-align: right;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         font-size: 21px;
+        border: 1px;
     }
 
     #total-2{
@@ -564,11 +584,12 @@ tfoot td {
     }
 
     .small-btn {
-        padding: 9px 0px;
+        padding: 12px 6px;
         font-size: 14px;
-        width: 98px;
-        margin-left: 3px;
+        width: 109px;
+        margin-bottom: 9px;
     }
+    
 }
 
 @media print{
@@ -577,4 +598,3 @@ tfoot td {
     }
 }
 
-        
